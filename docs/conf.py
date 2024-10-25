@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "CAPE Utilities"
+project = "capepy"
 copyright = "2024, Micah Halter"
 author = "Micah Halter"
 
