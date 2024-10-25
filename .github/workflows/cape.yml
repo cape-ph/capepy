@@ -4,12 +4,17 @@ on:
         branches: [main]
     pull_request:
 
+permissions:
+    pages: write
+    id-token: write
+
 jobs:
     python:
         name: Python
-        uses: cape-ph/.github/.github/workflows/python_checks.yml@v1
+        uses: cape-ph/.github/.github/workflows/poetry_python_checks.yml@sphinx
         with:
             pytest: true
+            sphinx: true
     general:
         name: General
         uses: cape-ph/.github/.github/workflows/general_checks.yml@v1
