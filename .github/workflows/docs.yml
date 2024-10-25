@@ -14,15 +14,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - run: pipx install poetry
             - uses: actions/setup-python@v5
               id: setup_python
               with:
                   python-version: 3.11
-            - uses: abatilo/actions-poetry@v2
-            - name: install dependencies
-              run: poetry install
-            - name: build documentation
-              run: |
+                  cache: "poetry"
+            - run: poetry install
+            - run: |
                   cd docs
                   make html
             - name: upload documentation artifacts
