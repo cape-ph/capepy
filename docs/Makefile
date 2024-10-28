@@ -16,7 +16,7 @@ help:
 
 apidoc:
 	$(info Generating API Documentation for $(PACKAGEDIR))
-	@$(SPHINXAPIDOC) -T -o "$(SOURCEDIR)/api" "$(PACKAGEDIR)"
+	@$(SPHINXAPIDOC) --remove-old --force -T -o "$(SOURCEDIR)/api" "$(PACKAGEDIR)"
 
 .PHONY: apidoc help Makefile
 
