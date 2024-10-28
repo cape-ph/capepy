@@ -1,3 +1,5 @@
+import logging
+
 import boto3
 
 
@@ -5,12 +7,14 @@ class Boto3Object(object):
     """Contains general resources needed by all AWS utilities for interacting with the boto3 library
 
     Attributes:
+        logger: The logger for logging to AWS Glue
         clients: A dictionary of instantiated AWS clients indexed by the name of the AWS service.
         resources: A dictionary of instantiated AWS resources indexed by the name of the AWS service.
     """
 
     def __init__(self):
         """Constructor for initializing a Boto3Object"""
+        self.logger = logging.getLogger(__name__)
         self.clients = {}
         self.resources = {}
 
