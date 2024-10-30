@@ -3,6 +3,8 @@ on:
     push:
         branches: [main]
     pull_request:
+    release:
+        types: [created]
 
 permissions:
     pages: write
@@ -18,3 +20,23 @@ jobs:
     general:
         name: General
         uses: cape-ph/.github/.github/workflows/general_checks.yml@v1
+    publish:
+        name: Publsih to PyPI
+        needs: python
+        runs-on: ubuntu-latest
+        if: ${{ github.event_name == 'release' }}
+        environment:
+            name: pypi
+            url: https://pypi.org/p/capepy
+        permissions:
+            id-token: write
+        steps:
+            - uses: actions/checkout@v4
+            - run: pipx install poetry
+            - uses: actions/setup-python@v5
+              id: setup_python
+              with:
+                  python-version: 3.11
+                  cache: "poetry"
+            - run: poetry build
+            - uses: pypa/gh-action-pypi-publish@release/v1
