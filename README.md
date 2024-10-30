@@ -9,7 +9,7 @@ structures without worrying about the implementation details of each.
 ## Installation
 
 ```sh
-pip install git+https://github.com/cape-ph/capepy.git
+pip install capepy
 ```
 
 ## Development
