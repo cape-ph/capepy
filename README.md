@@ -1,5 +1,8 @@
 # CAPE Python Utilities
 
+[![CI/CD](https://github.com/cape-ph/capepy/actions/workflows/cape.yml/badge.svg)](https://github.com/cape-ph/capepy/actions/workflows/cape.yml)
+[![PyPI Latest Release](https://img.shields.io/pypi/v/capepy.svg)](https://pypi.org/p/capepy/)
+
 This repository contains a collection of utility functions useful for developing
 on and interacting with the CAPE infrastructure. It basically provides an
 abstraction layer over the core concepts such as ETL (extract, transform, load)
