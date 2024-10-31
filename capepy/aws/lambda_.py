@@ -39,7 +39,27 @@ class BucketNotificationRecord(Record):
         )
 
 
-class ETLRecord(Record):
+class QueueRecord(Record):
+    """An object for general records in AWS Lambda handlers.
+
+    Attributes:
+        raw: The raw record
+    """
+
+    def __init__(self, record):
+        """Constructor for instantiating a new Lambda Record
+
+        Args:
+            record (object): A record from an AWS Lambda handler event
+        """
+        try:
+            self.body = json.loads(self.raw["body"])
+        except ValueError:
+            self.body = self.raw["body"]
+        self.id = self.raw["messageId"]
+
+
+class ETLRecord(QueueRecord):
     """An object for ETL related records passed into AWS Lambda handlers.
 
     Attributes:
@@ -55,13 +75,12 @@ class ETLRecord(Record):
             record (object): An S3 bucket related record from an AWS Lambda handler event
         """
         super().__init__(record)
-        body = json.loads(self.raw["body"])
-        self.job = body["etl_job"]
-        self.bucket = body["bucket"]
-        self.key = body["key"]
+        self.job = self.body["etl_job"]
+        self.bucket = self.body["bucket"]
+        self.key = self.body["key"]
 
 
-class PipelineRecord(Record):
+class PipelineRecord(QueueRecord):
     """An object for pipeline records passed into AWS Lambda handlers.
 
     Attributes:
@@ -77,7 +96,6 @@ class PipelineRecord(Record):
             record (object): An analysis pipeline related record from an AWS Lambda handler event
         """
         super().__init__(record)
-        body = json.loads(self.raw["body"])
-        self.name = body["pipeline_name"]
-        self.version = body["pipeline_version"]
-        self.parameters = body["parameters"]
+        self.name = self.body["pipeline_name"]
+        self.version = self.body["pipeline_version"]
+        self.parameters = self.body["parameters"]
