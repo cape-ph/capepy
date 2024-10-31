@@ -37,8 +37,8 @@ class Table(Boto3Object):
                 )
             else:
                 msg = (
-                    f"Error trying to access CAPE data analysis pipeline registry "
-                    f"DynamoDB table ({table_name}): {code} {message}",
+                    f"Error trying to access CAPE DynamoDB table ({table_name}): "
+                    f"{code} {message}",
                 )
 
             self.logger.error(msg)
@@ -71,12 +71,14 @@ class Table(Boto3Object):
 class PipelineTable(Table):
     """A DynamoDB table with specific structure for organizing analysis pipelines."""
 
-    def __init__(self, table_name):
+    def __init__(self, table_name=None):
         """Constructor to fetch and initialize a DynamoDB analysis pipeline table.
 
         Args:
-            table_name: The name of the pipeline table to retrieve from DynamoDB.
+            table_name: The name of the pipeline table to retrieve from DynamoDB. Defaults to $DAP_REG_DDB_TABLE
         """
+        if table_name is None:
+            table_name = os.getenv("DAP_REG_DDB_TABLE")
         super().__init__(table_name)
 
     def get_pipeline(self, pipeline_name, pipeline_version):
@@ -98,12 +100,14 @@ class PipelineTable(Table):
 class EtlTable(Table):
     """A DynamoDB table with specific structure for organizing ETL jobs."""
 
-    def __init__(self, table_name):
+    def __init__(self, table_name=None):
         """Constructor to fetch and initialize a DynamoDB ETL job table.
 
         Args:
-            table_name: The name of the ETL table to retrieve from DynamoDB.
+            table_name: The name of the ETL table to retrieve from DynamoDB. Defaults to $ETL_ATTRS_DDB_TABLE
         """
+        if table_name is None:
+            table_name = os.getenv("ETL_ATTRS_DDB_TABLE")
         super().__init__(table_name)
 
     def get_etls(self, bucket_name, prefix):
