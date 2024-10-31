@@ -8,7 +8,7 @@ from pyspark.sql import SparkSession
 from capepy.aws.meta import Boto3Object
 
 
-class ETLJob(Boto3Object):
+class EtlJob(Boto3Object):
     """An object for creating ETL Jobs for use in AWS Glue
 
     Attributes:

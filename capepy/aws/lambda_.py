@@ -59,7 +59,7 @@ class QueueRecord(Record):
         self.id = self.raw["messageId"]
 
 
-class ETLRecord(QueueRecord):
+class EtlRecord(QueueRecord):
     """An object for ETL related records passed into AWS Lambda handlers.
 
     Attributes:
