@@ -11,7 +11,7 @@ class Table(Boto3Object):
 
     Attributes:
         name: the name of the table
-        table: the table object retrieved with the boto3 dybamodb resource
+        table: the table object retrieved with the boto3 dynamodb resource
     """
 
     def __init__(self, table_name):
@@ -21,7 +21,7 @@ class Table(Boto3Object):
             table_name: The name of the table to retrieve from DynamoDB.
         """
         super().__init__()
-        ddb = self.get_resource("dybamodb", region_name=os.getenv("DDB_REGION"))
+        ddb = self.get_resource("dynamodb", region_name=os.getenv("DDB_REGION"))
         self.name = table_name
 
         try:
