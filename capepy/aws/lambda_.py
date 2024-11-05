@@ -52,6 +52,7 @@ class QueueRecord(Record):
         Args:
             record (object): A record from an AWS Lambda handler event
         """
+        super().__init__(record)
         try:
             self.body = json.loads(self.raw["body"])
         except ValueError:
