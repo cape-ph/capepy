@@ -99,4 +99,4 @@ class PipelineRecord(QueueRecord):
         super().__init__(record)
         self.name = self.body["pipeline_name"]
         self.version = self.body["pipeline_version"]
-        self.parameters = self.body["parameters"]
+        self.parameters = self.body["pipeline_parameters"]
