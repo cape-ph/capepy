@@ -28,7 +28,7 @@ class EtlJob(Boto3Object):
             sys.argv,
             [
                 "RAW_BUCKET_NAME",
-                "ALERT_OBJ_KEY",
+                "OBJECT_KEY",
                 "CLEAN_BUCKET_NAME",
             ],
         )
@@ -44,13 +44,13 @@ class EtlJob(Boto3Object):
         """
         response = self.get_client("s3").get_object(
             Bucket=self.parameters["RAW_BUCKET_NAME"],
-            Key=self.parameters["ALERT_OBJ_KEY"],
+            Key=self.parameters["OBJECT_KEY"],
         )
         status = response.get("ResponseMetadata", {}).get("HTTPStatusCode")
 
         if status != 200:
             err = (
-                f"ERROR - Could not get object {self.parameters['ALERT_OBJ_KEY']} from "
+                f"ERROR - Could not get object {self.parameters['OBJECT_KEY']} from "
                 f"bucket {self.parameters['RAW_BUCKET_NAME']}. ETL Cannot continue."
             )
 
@@ -62,7 +62,7 @@ class EtlJob(Boto3Object):
             raise Exception(err)
 
         self.logger.info(
-            f"Obtained object {self.parameters['ALERT_OBJ_KEY']} from bucket"
+            f"Obtained object {self.parameters['OBJECT_KEY']} from bucket"
             f"{self.parameters['RAW_BUCKET_NAME']}"
         )
 
@@ -100,6 +100,6 @@ class EtlJob(Boto3Object):
             raise Exception(err)
 
         self.logger.info(
-            f"Transformed {self.parameters['RAW_BUCKET_NAME']}/{self.parameters['ALERT_OBJ_KEY']} and wrote result "
+            f"Transformed {self.parameters['RAW_BUCKET_NAME']}/{self.parameters['OBJECT_KEY']} and wrote result "
             f"to {self.parameters['CLEAN_BUCKET_NAME']}/{clean_key}"
         )
