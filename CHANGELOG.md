@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/cape-ph/capepy/compare/v1.0.0...v1.0.1) (2024-11-08)
+
+
+### Bug Fixes
+
+* bump version in `pyproject.toml` to 1.0.1 ([30cab7e](https://github.com/cape-ph/capepy/commit/30cab7e9cf0fcb1a121d5dfabfafd9505ac9dcfb))
+
 ## 1.0.0 (2024-11-06)
 
 
