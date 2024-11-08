@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/cape-ph/capepy/compare/v1.0.1...v1.0.2) (2024-11-08)
+
+
+### Bug Fixes
+
+* **ci:** correctly set release type to python for updating the `pyproject.toml` file ([c74793a](https://github.com/cape-ph/capepy/commit/c74793ac008e34ccefecb6a6b91fa1bb3e471173))
+
 ## [1.0.1](https://github.com/cape-ph/capepy/compare/v1.0.0...v1.0.1) (2024-11-08)
 
 
