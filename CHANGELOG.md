@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/cape-ph/capepy/compare/v1.0.1...v1.0.2) (2025-01-23)
+
+
+### Bug Fixes
+
+* **ci:** correctly set release type to python for updating the `pyproject.toml` file ([c74793a](https://github.com/cape-ph/capepy/commit/c74793ac008e34ccefecb6a6b91fa1bb3e471173))
+* **dynamodb:** handle the case where getting an item from a DynamoDB table doesn't return a value ([9f01fde](https://github.com/cape-ph/capepy/commit/9f01fde28c08d72e2d579455f89447481290c972))
+
 ## [1.0.1](https://github.com/cape-ph/capepy/compare/v1.0.0...v1.0.1) (2024-11-08)
 
 
