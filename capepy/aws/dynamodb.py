@@ -55,7 +55,8 @@ class Table(Boto3Object):
         """
         ret = None
         try:
-            ret = self.table.get_item(Key=key)["Item"]
+            response = self.table.get_item(Key=key)
+            ret = response.get("Item")
 
         except ClientError as err:
             code, message = decode_error(err)
