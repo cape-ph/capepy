@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/cape-ph/capepy/compare/v1.0.2...v2.0.0) (2025-01-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **glue:** terminology was shifted upstream to use `src`/`sink` rather than `raw`/`clean`
+
+### Bug Fixes
+
+* **glue:** terminology was shifted upstream to use `src`/`sink` rather than `raw`/`clean` ([fd43b0d](https://github.com/cape-ph/capepy/commit/fd43b0d866f8fbc83a26aad0bc465061bf622208))
+
 ## [1.0.2](https://github.com/cape-ph/capepy/compare/v1.0.1...v1.0.2) (2025-01-23)
 
 
