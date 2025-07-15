@@ -122,3 +122,28 @@ class EtlTable(Table):
             The ETL Jobs triggered by the given bucket name and prefix.
         """
         return self.get_item({"bucket_name": bucket_name, "prefix": prefix})
+
+
+class CrawlerTable(Table):
+    """A DynamoDB table with specific structure for organizing Glue Crawlers."""
+
+    def __init__(self, table_name=None):
+        """Constructor to fetch and initialize a DynamoDB glue crawler table.
+
+        Args:
+            table_name: The name of the crawler table to retrieve from DynamoDB. Defaults to $CRAWLER_ATTRS_DDB_TABLE
+        """
+        if table_name is None:
+            table_name = os.getenv("CRAWLER_ATTRS_DDB_TABLE")
+        super().__init__(table_name)
+
+    def get_crawler(self, bucket_name):
+        """Retrieve a specific crawler from the table.
+
+        Args:
+            bucket_name: The name of the bucket.
+
+        Returns:
+            The retrieved crawler item.
+        """
+        return self.get_item({"bucket_name": bucket_name})
