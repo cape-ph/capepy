@@ -147,3 +147,28 @@ class CrawlerTable(Table):
             The retrieved crawler item.
         """
         return self.get_item({"bucket_name": bucket_name})
+
+
+class UserTable(Table):
+    """A DynamoDB table with specific structure for managing CAPE users."""
+
+    def __init__(self, table_name=None):
+        """Constructor to fetch and initialize a DynamoDB user table.
+
+        Args:
+            table_name: The name of the user table to retrieve from DynamoDB. Defaults to $USER_ATTRS_DDB_TABLE
+        """
+        if table_name is None:
+            table_name = os.getenv("USER_ATTRS_DDB_TABLE")
+        super().__init__(table_name)
+
+    def get_user(self, user_id):
+        """Retrieve a specific user from the table.
+
+        Args:
+            user_id: The id of the user.
+
+        Returns:
+            The retrieved user attributes.
+        """
+        return self.get_item({"user_id": user_id})
