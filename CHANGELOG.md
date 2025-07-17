@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.1.0](https://github.com/cape-ph/capepy/compare/v2.0.0...v2.1.0) (2025-07-17)
+
+
+### Features
+
+* **dynamodb:** add `CrawlerTable` for Glue Crawler dynamodb table ([64fccdb](https://github.com/cape-ph/capepy/commit/64fccdbfeca140784d15bff288a9f74f6bec8c60))
+* **dynamodb:** add `CrawlerTable` for Glue Crawler dynamodb table ([817fb71](https://github.com/cape-ph/capepy/commit/817fb71b617b18ae4d8048e9644eab4a3924a78d))
+* **dynamodb:** add `UserTable` for user attributes DyanmoDB table ([5cc7e2a](https://github.com/cape-ph/capepy/commit/5cc7e2a8335be4ba65934e31c0192b5cb9452561))
+* **dynamodb:** add `UserTable` for user attributes DyanmoDB table ([eda9b0e](https://github.com/cape-ph/capepy/commit/eda9b0e06063598445c0b12b87cdac833bf0c748))
+
 ## [2.0.0](https://github.com/cape-ph/capepy/compare/v1.0.2...v2.0.0) (2025-01-23)
 
 
