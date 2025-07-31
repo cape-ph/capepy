@@ -101,9 +101,9 @@ class PipelineTable(Table):
         """Retrieve the list of profiles for a given (pipeline, version).
 
         Args:
-            pipeline_name: The name of the pipeline the prefiles are being
+            pipeline_name: The name of the pipeline the profiles are being
                            retrieved for.
-            version: The version of the pipeline the prefiles are being
+            version: The version of the pipeline the profiles are being
                      retrieved for.
 
         Returns:
