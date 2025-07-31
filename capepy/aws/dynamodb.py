@@ -97,6 +97,23 @@ class PipelineTable(Table):
             key["version"] = pipeline_version
         return self.get_item(key)
 
+    def get_pipeline_profiles(self, pipeline_name, version):
+        """Retrieve the list of profiles for a given (pipeline, version).
+
+        Args:
+            pipeline_name: The name of the pipeline the prefiles are being
+                           retrieved for.
+            version: The version of the pipeline the prefiles are being
+                     retrieved for.
+
+        Returns:
+            The list of profile object keys and display name pairs for the
+            (pipeline, version) pair.
+        """
+        return self.get_item(
+            {"pipeline_name": pipeline_name, "version": version}
+        )
+
 
 class EtlTable(Table):
     """A DynamoDB table with specific structure for organizing ETL jobs."""
