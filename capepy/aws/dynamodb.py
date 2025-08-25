@@ -172,3 +172,29 @@ class UserTable(Table):
             The retrieved user attributes.
         """
         return self.get_item({"user_id": user_id})
+
+
+class CannedReportTable(Table):
+    """A DynamoDB table with specific structure for managing CAPE reports."""
+
+    def __init__(self, table_name=None):
+        """Constructor to fetch and initialize a DynamoDB user table.
+
+        Args:
+            table_name: The name of the canned report table to retrieve from
+                        DynamoDB. Defaults to $CANNED_REPORT_DDB_TABLE
+        """
+        if table_name is None:
+            table_name = os.getenv("CANNED_REPORT_DDB_TABLE")
+        super().__init__(table_name)
+
+    def get_report(self, report_id):
+        """Retrieve a specific report entry from the table.
+
+        Args:
+            report_id: The id of the report.
+
+        Returns:
+            The retrieved report item.
+        """
+        return self.get_item({"report_id": report_id})
