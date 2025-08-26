@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "capepy"
-version = "2.1.0"
+version = "2.2.0"
 description = "A collection of utility functions useful for developing on and interacting with the CAPE infrastructure"
 authors = ["Micah Halter <micah.halter@gtri.gatech.edu>"]
 license = "Apache-2.0"
