@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/cape-ph/capepy/compare/v2.1.0...v2.2.0) (2025-08-26)
+
+
+### Features
+
+* **dynamodb:** add canned report table class ([139eb93](https://github.com/cape-ph/capepy/commit/139eb93ec1fed2d5d63a5843a9397b2d88d08ea9))
+
 ## [2.1.0](https://github.com/cape-ph/capepy/compare/v2.0.0...v2.1.0) (2025-07-17)
 
 
