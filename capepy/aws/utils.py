@@ -33,8 +33,8 @@ def bad_param_response(bad_params):
     return (
         {
             "message": (
-                f"Missing or invalid required query string parameters: "
-                f"{bad_params}"
+                f"Missing or invalid required query string parameters. "
+                f"Required params: {bad_params}"
             )
         },
         400,
