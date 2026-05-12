@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/cape-ph/capepy/compare/v2.2.0...v2.3.0) (2026-05-12)
+
+
+### Features
+
+* 17 add workflow meta dynamo table and extra utility functions ([7548de0](https://github.com/cape-ph/capepy/commit/7548de0766b5ec459d2ed2e2a860d85129952864))
+
 ## [2.2.0](https://github.com/cape-ph/capepy/compare/v2.1.0...v2.2.0) (2025-08-26)
 
 
