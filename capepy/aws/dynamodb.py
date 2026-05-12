@@ -97,6 +97,48 @@ class PipelineTable(Table):
             key["version"] = pipeline_version
         return self.get_item(key)
 
+    def get_pipeline_by_id(self, pipeline_id):
+        """Retrieve a specific pipeline from the table.
+
+        Args:
+            pipeline_id: The id of the pipeline.
+
+        Returns:
+            The retrieved pipeline item.
+        """
+        key = {"pipeline_id": pipeline_id}
+        return self.get_item(key)
+
+
+class WorkflowMetaTable(Table):
+    """A DynamoDB table with specific structure for airflow workflow metadata.
+
+    This table contains a mapping of workflow DAG IDs to Pipeline IDs for
+    pipelines used in the workflow.
+    """
+
+    def __init__(self, table_name=None):
+        """Constructor to fetch and initialize a DynamoDB analysis pipeline table.
+
+        Args:
+            table_name: The name of the pipeline table to retrieve from DynamoDB. Defaults to $DAP_REG_DDB_TABLE
+        """
+        if table_name is None:
+            table_name = os.getenv("WORKFLOW_REG_DDB_TABLE")
+        super().__init__(table_name)
+
+    def get_workflow_by_id(self, dag_id):
+        """Retrieve a specific workflow entry from the table.
+
+        Args:
+            dag_id: The id of the workflow.
+
+        Returns:
+            The retrieved workflow item.
+        """
+        key = {"dag_id": dag_id}
+        return self.get_item(key)
+
 
 class EtlTable(Table):
     """A DynamoDB table with specific structure for organizing ETL jobs."""
