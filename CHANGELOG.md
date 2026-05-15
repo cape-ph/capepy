@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/cape-ph/capepy/compare/v2.3.0...v3.0.0) (2026-05-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **dynamodb:** changed to dap registry get_pipelines to be by id and added get_pipelines_by_name ([#23](https://github.com/cape-ph/capepy/issues/23))
+
+### Features
+
+* **dynamodb:** changed to dap registry get_pipelines to be by id and added get_pipelines_by_name ([#23](https://github.com/cape-ph/capepy/issues/23)) ([8c352b4](https://github.com/cape-ph/capepy/commit/8c352b4d3600a885b622468038ff96275cab4cc3))
+
 ## [2.3.0](https://github.com/cape-ph/capepy/compare/v2.2.0...v2.3.0) (2026-05-12)
 
 
